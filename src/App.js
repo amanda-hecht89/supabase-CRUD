@@ -12,6 +12,14 @@ import { logout } from './services/FetchUtils';
 
 
 function App() {
+
+  const [user, setUser] = useState(client.auth.user());
+
+  async function handleLogoutClick() {
+    await logout();
+    setUser('');
+  }
+
   return (
     <Router>
       <div>
@@ -21,34 +29,38 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="">SIGN IN</Link>
+              <Link to="/">SIGN IN</Link>
             </li>
             <li>
-              <Link to="">CREATE DEMON DATE</Link>
+              <Link to="/create">CREATE DEMON DATE</Link>
             </li>
             <li>
-              <Link to="">UPDATE DEMON DATA</Link>
+              <Link to="/demons/1">UPDATE DEMON DATA</Link>
             </li>
             <li>
-              <Link to="">LIST OF DEMONS</Link>
+              <Link to="/demons">LIST OF DEMONS</Link>
             </li>
             <li>
-              <button>LOGOUT</button>
+              <button onClick={handleLogoutClick}>LOGOUT</button>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route>
-
+          <Route exact path="/">
+            {
+              !user ? <AuthPage setUser={setUser}/> : <Redirect to="demons"/>
+            }
           </Route>
-          <Route>
-
+          <Route exact path="">
+            <UpdateDemonPage />
           </Route>
-          <Route>
-
+          <Route exact path="">
+            {
+              !user ? <DemonListPage setUser={setUser}/> : <Redirect to="/"/>
+            }
           </Route>
-          <Route>
-
+          <Route exact path="">
+            <CreateDemonPage />
           </Route>
         </Switch>
       </div>
