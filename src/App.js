@@ -1,24 +1,56 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { useState } from 'react';
+import { Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+
+import AuthPage from './AuthPage';
+import DemonListPage from './DemonListPage';
+import CreateDemonPage from './CreateDemonPage';
+import UpdateDemonPage from './UpdateDemonPage';
+import { client } from './services/client';
+import { logout } from './services/FetchUtils';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="">SIGN IN</Link>
+            </li>
+            <li>
+              <Link to="">CREATE DEMON DATE</Link>
+            </li>
+            <li>
+              <Link to="">UPDATE DEMON DATA</Link>
+            </li>
+            <li>
+              <Link to="">LIST OF DEMONS</Link>
+            </li>
+            <li>
+              <button>LOGOUT</button>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route>
+
+          </Route>
+          <Route>
+
+          </Route>
+          <Route>
+
+          </Route>
+          <Route>
+
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
