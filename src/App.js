@@ -1,7 +1,7 @@
 import './App.css';
 
 import { useState } from 'react';
-import { Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 
 import AuthPage from './AuthPage';
 import DemonListPage from './DemonListPage';
