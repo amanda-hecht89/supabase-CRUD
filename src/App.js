@@ -8,7 +8,6 @@ import DemonListPage from './DemonListPage';
 import CreateDemonPage from './CreateDemonPage';
 import UpdateDemonPage from './UpdateDemonPage';
 import { client } from './services/client';
-import { logout } from './services/FetchUtils';
 
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
   const [user, setUser] = useState(client.auth.user());
 
   async function handleLogoutClick() {
-    await logout();
     setUser('');
   }
 
@@ -48,18 +46,18 @@ function App() {
         <Switch>
           <Route exact path="/">
             {
-              !user ? <AuthPage setUser={setUser}/> : <Redirect to="demons"/>
+              !user ? <AuthPage setUser={setUser}/> : <Redirect to="/demons"/>
             }
           </Route>
-          <Route exact path="">
+          <Route exact path="/demons/:id">
             <UpdateDemonPage />
           </Route>
-          <Route exact path="">
+          <Route exact path="/demons">
             {
-              !user ? <DemonListPage setUser={setUser}/> : <Redirect to="/"/>
+              user ? <DemonListPage setUser={setUser}/> : <Redirect to="/"/>
             }
           </Route>
-          <Route exact path="">
+          <Route exact path="/create">
             <CreateDemonPage />
           </Route>
         </Switch>

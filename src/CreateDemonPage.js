@@ -3,13 +3,12 @@ import { createDemon } from './services/FetchUtils';
 import { useHistory } from 'react-router-dom';
 
 export default function CreateDemonPage() {
-  const { push } = useHistory; 
+  const { push } = useHistory(); 
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [area, setArea] = useState('');
   const [deathMethod, setDeathMethod] = useState('');
   const [killed, setKilled] = useState('');
-  const [submit, setSubmit] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,11 +18,10 @@ export default function CreateDemonPage() {
       lastSeen: area,
       killMethod: deathMethod,
       killedMonster: killed,
-      user_id: submit,
     });
 
     setName(''); setType(''); setArea('');
-    setDeathMethod(''); setKilled(''); setSubmit('');
+    setDeathMethod(''); setKilled('');
 
     push('/demons');
   }
@@ -51,10 +49,6 @@ export default function CreateDemonPage() {
         <label className='label'>
           Are they Dead?
           <input onChange={e => setKilled(e.target.value)} value={killed} />
-        </label>
-        <label className='label'>
-          Entry Author
-          <input onChange={e => setSubmit(e.target.value)} value={submit} />
         </label>
         <button className='button'>ENTER DATA</button>
       </form>
