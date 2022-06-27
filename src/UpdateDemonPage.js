@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 export default function UpdateDemonPage() {
   const { push } = useHistory();
-  const { id } useParams();
+  const { id } = useParams();
   const [name, setName] = useState('');
   const [type, setType] = useState('');
   const [area, setArea] = useState('');
@@ -38,23 +38,23 @@ export default function UpdateDemonPage() {
       lastSeen: area,
       killMethod: deathMethod,
       killedMonster: killed,
-    }, id)
+    }, id);
 
     setName('');
-      setType('');
-      setArea('');
-      setDeathMethod('');
-      setKilled('');
+    setType('');
+    setArea('');
+    setDeathMethod('');
+    setKilled('');
 
-      push('/demons')
+    push('/demons');
   }
 
 
   return (
     <div>
       <header>UPDATE MONSTER DATE</header>
-      <form onSubmit={handleSubmit}>
-      <label className='labels'>
+      <form className='editForm' onSubmit={handleSubmit}>
+        <label className='labels'>
           Monster Name
           <input onChange={e => setName(e.target.value)} value={name} />
         </label>
@@ -76,7 +76,7 @@ export default function UpdateDemonPage() {
         </label>
         <button className='button2'>EDIT DATA</button>
       </form>
-        <button className='button2' onClick={handleDeleteDemon}>DELETE DATA</button>
+      <button className='delete' onClick={handleDeleteDemon}>DELETE DATA</button>
     </div>
   );
 }
