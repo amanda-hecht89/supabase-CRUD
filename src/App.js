@@ -27,7 +27,7 @@ function App() {
           <h1>WELCOME</h1>
         </header>
         <nav>
-          <ul>
+          <ul className='navigation'>
             <li>
               <Link to="/">SIGN IN</Link>
             </li>

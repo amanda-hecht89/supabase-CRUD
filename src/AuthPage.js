@@ -19,28 +19,28 @@ export default function AuthPage({ setUser }) {
   }
   
   return (
-    <div>
+    <div className='intro'>
       <h3>Winchesters Guide to Monsters</h3>
       <h1 className='error'>{error}</h1>
       <form className='up' onSubmit={handleSubmit}>
         <p>SIGN UP</p>
-        <label>email
+        <label className='labels'>email
           <input onChange={e => setEmail(e.target.value)} value={email} type="email" />
         </label>
-        <label>password
+        <label className='labels'>password
           <input onChange={e => setPassword(e.target.value)} value={password} type="password" />
         </label>
-        <button>SIGN UP</button>
+        <button className='button'>SIGN UP</button>
       </form>
       <form className='in' onSubmit={handleSubmit}>
         <p>SIGN IN</p>
-        <label>email
+        <label className='labels'>email
           <input onChange={e => setSignInEmail(e.target.value)} value={signInEmail} type="email" />
         </label>
-        <label>password
+        <label className='labels'>password
           <input onChange={e => setSignInPassword(e.target.value)} value={signInPassword} type="password" />
         </label>
-        <button>SIGN IN</button>
+        <button className='button'>SIGN IN</button>
       </form>
     </div>
   );

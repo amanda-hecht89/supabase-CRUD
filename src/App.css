@@ -4,3 +4,50 @@
 body {
   background-color: rgba(43, 103, 83, 0.537);
 }
+
+.navigation {
+  border: 3px solid black;
+  width: 30%;
+}
+
+.in {
+  border: 3px solid rebeccapurple;
+  display: flex;
+  flex-direction: column;
+} 
+
+.up {
+  border: 3px solid rebeccapurple;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-self: center;
+  color: chartreuse;
+}
+
+h3 {
+  display: flex;
+  align-self: center;
+  color: green;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+}
+
+.labels {
+  margin: 3px;
+
+}
+
+.button {
+  margin: 3px;
+  width: 50%;
+  display: flex;
+  align-self: center;
+}
