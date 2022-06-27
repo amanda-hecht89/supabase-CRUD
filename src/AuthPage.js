@@ -6,22 +6,26 @@ export default function AuthPage({ setUser }) {
   const [password, setPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
-  const [error, setError] = useState('');
 
   async function handleSubmit(e) {
     e.preventDefault();
-    try {
-      const user = await signUp(email, password);
-      setUser(user);   
-    } catch (e) {
-      setError(e.message);
-    }
+
+    const user = await signUp(email, password);
+    setUser(user);
   }
+
+  async function handleInSubmit(e) {
+    e.preventDefault();
+  
+    const user = await signIn(signInEmail, signInPassword);
+    setUser(user);   
+  }
+
+
   
   return (
     <div className='intro'>
       <h3>Winchesters Guide to Monsters</h3>
-      <h1 className='error'>{error}</h1>
       <form className='up' onSubmit={handleSubmit}>
         <p>SIGN UP</p>
         <label className='labels'>email
@@ -32,7 +36,7 @@ export default function AuthPage({ setUser }) {
         </label>
         <button className='button'>SIGN UP</button>
       </form>
-      <form className='in' onSubmit={handleSubmit}>
+      <form className='in' onSubmit={handleInSubmit}>
         <p>SIGN IN</p>
         <label className='labels'>email
           <input onChange={e => setSignInEmail(e.target.value)} value={signInEmail} type="email" />
