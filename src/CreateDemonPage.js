@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { createDemon } from './services/FetchUtils';
 import { useHistory } from 'react-router-dom';
 
+
 export default function CreateDemonPage() {
   const { push } = useHistory(); 
   const [name, setName] = useState('');
