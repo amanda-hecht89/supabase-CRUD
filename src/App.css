@@ -1,38 +1,86 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: rgba(43, 103, 83, 0.537);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navigation {
+  border: 3px solid black;
+  width: 30%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.in {
+  border: 3px solid rebeccapurple;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+} 
+
+.up {
+  border: 3px solid rebeccapurple;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+header {
+  display: flex;
+  align-self: center;
+  color: chartreuse;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  display: flex;
+  align-self: center;
+  color: green;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+}
+
+.labels {
+  margin: 3px;
+
+}
+
+.button {
+  margin: 3px;
+  width: 50%;
+  display: flex;
+  align-self: center;
+}
+
+.monster {
+  border: 3px solid green;
+  width: 40%;
+}
+
+.monsterForm {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  align-content: center;
+}
+
+.editForm {
+  border: 4px solid blue;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.button2 {
+  width: 40%;
+  display: flex;
+  align-self: center;
+  align-content: center;
+}
+
+.delete {
+  color: red;
+}
+.monsterList {
+  border: 3px solid pink;
 }

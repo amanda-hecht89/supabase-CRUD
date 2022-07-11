@@ -1,24 +1,69 @@
-import logo from './logo.svg';
 import './App.css';
 
+import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
+
+import AuthPage from './AuthPage';
+import DemonListPage from './DemonListPage';
+import CreateDemonPage from './CreateDemonPage';
+import UpdateDemonPage from './UpdateDemonPage';
+import { client } from './services/client';
+
+
 function App() {
+
+  const [user, setUser] = useState(client.auth.user());
+
+  async function handleLogoutClick() {
+    setUser('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <header>
+          <h1>WELCOME</h1>
+        </header>
+        <nav>
+          <ul className='navigation'>
+            <li>
+              <Link to="/">SIGN IN</Link>
+            </li>
+            <li>
+              <Link to="/create">CREATE DEMON DATE</Link>
+            </li>
+            <li>
+              <Link to="/demons/1">UPDATE DEMON DATA</Link>
+            </li>
+            <li>
+              <Link to="/demons">LIST OF DEMONS</Link>
+            </li>
+            <li>
+              <button onClick={handleLogoutClick}>LOGOUT</button>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route exact path="/">
+            {
+              !user ? <AuthPage setUser={setUser}/> : <Redirect to="/demons"/>
+            }
+          </Route>
+          <Route exact path="/demons/:id">
+            <UpdateDemonPage />
+          </Route>
+          <Route exact path="/demons">
+            {
+              user ? <DemonListPage setUser={setUser}/> : <Redirect to="/"/>
+            }
+          </Route>
+          <Route exact path="/create">
+            <CreateDemonPage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+
   );
 }
 
