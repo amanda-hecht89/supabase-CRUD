@@ -23,3 +23,18 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+
+
+    const monster = await createDemon({
+      demonName: name,
+      demonType: type,
+      lastSeen: area,
+      killMethod: deathMethod,
+      killedMonster: killed,
+    });
+
+
+
+
+    import { createDemon } from './services/FetchUtils';
