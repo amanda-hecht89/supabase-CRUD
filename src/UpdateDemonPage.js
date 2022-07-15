@@ -15,11 +15,11 @@ export default function UpdateDemonPage() {
   useEffect(() => {
     async function doFetch() {
       const monster = await getDemonById(id);
-      setName(monster.name);
-      setType(monster.type);
-      setArea(monster.area);
-      setDeathMethod(monster.deathMethod);
-      setKilled(monster.setKilled);
+      setName(monster.demonName);
+      setType(monster.demonType);
+      setArea(monster.lastSeen);
+      setDeathMethod(monster.killMethod);
+      setKilled(monster.killedMonster);
     }
     doFetch();
   }, [id]);

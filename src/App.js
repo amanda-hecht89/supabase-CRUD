@@ -33,9 +33,6 @@ function App() {
               <Link to="/create">CREATE DEMON DATE</Link>
             </li>
             <li>
-              <Link to="/demons/1">UPDATE DEMON DATA</Link>
-            </li>
-            <li>
               <Link to="/demons">LIST OF DEMONS</Link>
             </li>
             <li>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { createDemon } from './services/FetchUtils';
 
 import { useHistory } from 'react-router-dom';
 
@@ -13,6 +14,14 @@ export default function CreateDemonPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    const monster = await createDemon({// eslint-disable-line
+      demonName: name,
+      demonType: type,
+      lastSeen: area,
+      killMethod: deathMethod,
+      killedMonster: killed,
+    });
 
 
     setName(''); setType(''); setArea('');

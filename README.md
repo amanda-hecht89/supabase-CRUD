@@ -26,15 +26,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 
 
-    const monster = await createDemon({
-      demonName: name,
-      demonType: type,
-      lastSeen: area,
-      killMethod: deathMethod,
-      killedMonster: killed,
-    });
 
 
+for github
 
-
-    import { createDemon } from './services/FetchUtils';
+   
