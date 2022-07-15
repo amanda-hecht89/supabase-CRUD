@@ -13,13 +13,13 @@ export async function getDemons() {
 }
 
 export async function updateDemon(demon, id) {
-  const { data } = await client.from('Demon_Data').update(demon).match({ id : id }).single();
+  const { data } = await client.from('Demon_Data').update(demon).match({ id: id }).single();
 
   return data;
 }
 
 export async function deleteDemon(id) {
-  const { data } = await client.from('Demon_Data').delete.match({ id : id }).single();
+  const { data } = await client.from('Demon_Data').delete.match({ id: id }).single();
 
   return data;
 }
