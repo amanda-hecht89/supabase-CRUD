@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Demon({ name, id, type, area, deathMethod }) {
+export default function Demon({ demonName, id, demonType, lastSeen, killMethod }) {
+
   return <Link to={`/demons/${id}`}>
     <p>
-      {name} is a {type}. Found in {area}. Can be killed 
-        by {deathMethod}.
+      {demonName} is a {demonType}. Found in {lastSeen}. Can be killed 
+        by {killMethod}.
     </p>
   </Link>;
 }
